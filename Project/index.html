@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
      <head>
-          <link rel="stylesheet" type="text/css" href="css/students-login.css">
+          <link rel="stylesheet" type="text/css" href="../css/students-login.css">
           <meta charset="UTF-8">
           <meta name="description" content="SLEP: Student' Login">
           <meta name="author" content="Giorgio Armani Magno">
@@ -13,19 +13,12 @@
           <title>SLEP: Students' Login</title>
      </head>
      <body>
-           <?php
-              session_start();
-              session_unset();
-              session_destroy();
-
-
-           ?>
           <div class="page-wrap">
                <div class=main>
                          <div class="sidebar">
                               <div class="header">
                                    <header>
-                                        <img class="logo" src="images/sleplogonoBG.png" alt="logo">
+                                        <img class="logo" src="../images/sleplogonoBG.png" alt="logo">
                                    </header>
                               </div> <!--header-->
 
@@ -33,7 +26,7 @@
                               <p class="caption-01">Enter your personal details and</p>
                               <p class="caption-02">start leading your organization with us.</p>
                               
-                              <a href="admin-login.php">
+                              <a href="admin-login.html">
                               <div class="btn-container">
                                    <button class="btn-admin">OSA STAFFS?</button>
                               </div> <!--btn-container-->
@@ -41,22 +34,22 @@
                          </div> <!--sidebar-->
 
                          <div class="main-content">
-                              <form action="includes/student.login.inc.php" method="post">
+                              <form>
                               <h1 class="h1-sign-in">SIGN IN TO YOUR ACCOUNT</h1>
                               
                               <div class="input-container">
                                    <i class="fa fa-id-card icon" style="font-size: 20px;" aria-hidden="true"></i>
-                                   <input class="input-field" type="number" name="student_number" placeholder="Student Number">
+                                   <input class="input-field" type="number" name="input-student-number" placeholder="Student Number">
                               </div>
 
                               <div class="input-container">
                                    <i class="fa fa-user icon" style="font-size: 22px;"></i>
-                                   <input class="input-field" type="text" name="student_email" placeholder="User ID">
+                                   <input class="input-field" type="email" name="input-email" placeholder="User ID">
                               </div>
 
                               <div class="input-container">
                                    <i class="fa fa-lock icon" style="font-size: 18px;"></i>
-                                   <input id="input-password" class="input-field" type="password" name="student_password" placeholder="Password">
+                                   <input id="input-password" class="input-field" type="password" name="input-password" placeholder="Password">
                                    <span class="field-icon" onclick="onClickEye()">
                                         <i id="hide1" class="fa fa-eye"></i>
                                         <i id="hide2" class="fa fa-eye-slash"></i>
@@ -68,23 +61,15 @@
                               </div>
                               
                               <div class="btn-container">
-                                   <button class="btn-login" type="submit" name="submit">Login</button>
+                                   <form action="#">
+                                        <button class="btn-login">Login</button>
+                                   </form>
+
+                                   <p class="fill-in">Fill in all fields!</p>
                               </div>
                          </form>
-                         <?php
-                              if(isset($_GET["error"])){
-                                   if($_GET["error"] == "EmptyInput"){
-                                        echo "<p class='fill-in'>Fill in all fields!</p>";
-                                   }
-                                   if($_GET["error"] == "InvalidCredentials"){
-                                        echo "<p class='fill-in'>Invalid Credentials!</p>";
-                                   }
-                              }
-                         ?>
-
                     </div> <!--main-content-->
-               </div>
-                <!--main-->
+               </div> <!--main-->
           </div> <!--page-wrap-->
           
           <script>
@@ -104,6 +89,6 @@
                     }
                }
           </script>
-          
+
      </body>
 </html>
